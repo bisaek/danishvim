@@ -20,7 +20,6 @@ vim.o.smartindent = true
 
 
 
-vim.keymap.set('n', '<leader>n', ':Neotree filesystem reveal right<cr>')
 
 
 vim.cmd.colorscheme "catppuccin-mocha"
