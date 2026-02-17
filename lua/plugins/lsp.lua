@@ -15,7 +15,7 @@ return {
     },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls" }
+        ensure_installed = { "lua_ls", "rust_analyzer" }
       })
     end
   },
@@ -23,6 +23,7 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       vim.lsp.enable("lua_ls")
+      vim.lsp.enable("rust_analyzer")
 
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
