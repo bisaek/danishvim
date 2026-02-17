@@ -2,11 +2,6 @@ return {
   -- add your plugins here
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {
-    'nvim-treesitter/nvim-treesitter',
-    lazy = false,
-    build = ':TSUpdate'
-  },
-  {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     dependencies = {

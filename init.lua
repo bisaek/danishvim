@@ -21,12 +21,6 @@ vim.o.smartindent = true
 
 
 vim.keymap.set('n', '<leader>n', ':Neotree filesystem reveal right<cr>')
---vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
---vim.wo[0][0].foldmethod = 'expr'
-
-
-
-vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 
 
 vim.cmd.colorscheme "catppuccin-mocha"
