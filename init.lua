@@ -29,6 +29,8 @@ vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 
 
 
-
+vim.keymap.set("n", "<leader>h", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end)
 
 vim.cmd.colorscheme "catppuccin-mocha"
