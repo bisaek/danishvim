@@ -1,6 +1,7 @@
 require("config.lazy")
 
-
+vim.opt.number = true
+vim.opt.relativenumber = true
 
 vim.keymap.set({'n','v','o'}, 'h', '<Nop>')
 vim.keymap.set({'n','v','o'}, 'j', 'h')
