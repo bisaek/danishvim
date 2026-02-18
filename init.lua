@@ -18,6 +18,14 @@ vim.o.softtabstop = 2        -- hvor mange spaces <Tab> indsætter i insert mode
 -- Valgfrit: smart auto-indentering
 vim.o.smartindent = true
 
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+})
+
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 
 
 
