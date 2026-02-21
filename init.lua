@@ -8,6 +8,15 @@ vim.keymap.set({'n','v','o'}, 'k', 'j')
 vim.keymap.set({'n','v','o'}, 'l', 'k')
 vim.keymap.set({'n','v','o'}, 'æ', 'l')
 
+vim.keymap.set('n', '<leader>w', function ()
+ if vim.bo.modified then
+  vim.cmd("write")
+  print("File Saved")
+else
+  print("No changes")
+ end 
+end)
+
 -- Brug spaces i stedet for rigtige tabs
 vim.o.expandtab = true       -- gør at <Tab> indsætter spaces
 vim.o.tabstop = 2            -- en tab er 2 spaces bred
