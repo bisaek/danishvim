@@ -1,6 +1,5 @@
 require("config.lazy")
 
-vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.keymap.set({'n','v','o'}, 'h', '<Nop>')
@@ -31,6 +30,19 @@ vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 
 vim.keymap.set("n", "<leader>h", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+  print("Inlay hint: " .. (vim.lsp.inlay_hint.is_enabled() and "ON" or "OFF"))
+end)
+
+local virtual_text_enabled = true
+
+vim.keymap.set("n", "<leader>dt", function()
+  virtual_text_enabled = not virtual_text_enabled
+
+  vim.diagnostic.config({
+    virtual_text = virtual_text_enabled,
+  })
+
+  print("Virtual text: " .. (virtual_text_enabled and "ON" or "OFF"))
 end)
 
 vim.cmd.colorscheme "catppuccin-mocha"
