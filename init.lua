@@ -55,6 +55,11 @@ vim.keymap.set("n", "<leader>dt", function()
   print("Virtual text: " .. (virtual_text_enabled and "ON" or "OFF"))
 end)
 
+local terminals = {
+  "standard",
+  "run"
+}
+
 local last_buffer = nil
 local terminal_buffers = {}
 
@@ -72,14 +77,16 @@ vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 vim.keymap.set("n", "<leader>t", function()
   if vim.bo.buftype == "terminal" then
     vim.api.nvim_set_current_buf(last_buffer)
-  else 
-    vim.keymap.set("n", "t", function() 
-      open_terminal("t")
-    end)
-    vim.keymap.set("n", "r", function()
-      open_terminal("r")
+  else
+    vim.ui.select(terminals, {
+      prompt = "Terminal: "
+    }, function(terminal)
+      if terminal then
+        open_terminal(terminal)
+      end
     end)
   end
 end)
+
 
 vim.cmd.colorscheme "catppuccin-mocha"
