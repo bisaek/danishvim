@@ -4,16 +4,26 @@ return {
   build = ':TSUpdate',
   config = function()
 
-    --vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-    --vim.wo[0][0].foldmethod = 'expr'
+    require("nvim-treesitter").setup {
+      install_dir = vim.fn.stdpath('data') .. '/site',
+    }
 
-    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    require("nvim-treesitter").install {
+      "lua",
+      "rust",
+      "php",
+      "blade",
+      "html",
+      "javascript",
+      "css",
+      "json",
+    }
 
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      pattern = "*.rs, *.lua",
+    vim.api.nvim_create_autocmd("FileType", {
       callback = function()
-        vim.lsp.buf.format({ async = false })
-      end
+        pcall(vim.treesitter.start)
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end,
     })
-  end
+  end,
 }

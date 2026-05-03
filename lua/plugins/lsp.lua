@@ -15,7 +15,7 @@ return {
     },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "rust_analyzer", "pyright" }
+        ensure_installed = { "lua_ls", "rust_analyzer", "pyright", "intelephense", "tailwindcss", "html" }
       })
     end
   },
@@ -25,6 +25,9 @@ return {
       vim.lsp.enable("lua_ls")
       vim.lsp.enable("rust_analyzer")
       vim.lsp.enable("pyright")
+      vim.lsp.enable("intelephense")
+      vim.lsp.enable("tailwindcss")
+      vim.lsp.enable("html")
 
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
