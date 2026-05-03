@@ -20,11 +20,11 @@ return   {
           ["k"] = "down",  -- svarer til j (ned)
           ["l"] = "up",    -- svarer til k (op)
           ["æ"] = "open",           -- svarer til l (højre / åbn)
-        }
+        },
       }
     })
 
 
-    vim.keymap.set('n', '<leader>n', ':Neotree filesystem reveal right<cr>')
+    vim.keymap.set('n', '<leader>n', ':Neotree filesystem reveal float<cr>')
   end    
 }
