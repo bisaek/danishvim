@@ -21,6 +21,11 @@ return   {
           ["l"] = "up",    -- svarer til k (op)
           ["æ"] = "open",           -- svarer til l (højre / åbn)
         },
+      },
+      filesystem = {
+        filtered_items = {
+          hide_dotfiles = false,
+        }
       }
     })
 
